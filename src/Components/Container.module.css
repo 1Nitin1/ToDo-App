@@ -1,0 +1,14 @@
+.container{
+   border:2px dashed black;
+   margin:20px;
+   text-align: center;
+   border-radius: 10px;
+   font-weight: 600;
+   height:auto;
+   width:700px;
+   position: absolute;
+   left:50%;
+   transform: translateX(-50%);
+   
+   
+}
