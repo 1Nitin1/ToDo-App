@@ -5,29 +5,29 @@ function Input({ addElement }) {
   const [date, setDate] = useState("");
 
   return (
-    <div classNameName="container text-center">
-      <div classNameName={`row ${styles.kgRow}`}>
-        <div classNameName="col-6">
+    <div className="container text-center">
+      <div className={`row ${styles.kgRow}`}>
+        <div className="col-6">
           <input
-            classNameName={styles.text}
+            className={styles.text}
             type="text"
             placeholder="Enter Work"
             value={work}
             onChange={(e) => setWork(e.target.value)}
           />
         </div>
-        <div classNameName="col-4">
+        <div className="col-4">
           <input
-            classNameName={styles.date}
+            className={styles.date}
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
-        <div classNameName="col-2">
+        <div className="col-2">
           <button
             type="button"
-            classNameName="btn btn-success button"
+            className="btn btn-success button"
             onClick={() => {
               if (!work.trim() || !date) {
                 alert("Enter all info.");
