@@ -4,6 +4,7 @@ import Item1 from "./Components/Item1";
 import './App.css'
 import Container from "./Components/Container";
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   let savedList = localStorage.getItem("MyList");
   let [originalList, setList] = useState(
@@ -39,6 +40,7 @@ function App() {
           delElement={delElement}
         />
       ))}
+      <Analytics/>
     </Container>
   );
 }
