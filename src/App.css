@@ -1,5 +1,197 @@
-
-.button{
-   min-width: 80px;
+* {
+  box-sizing: border-box;
 }
 
+:root,
+body[data-theme="dark"] {
+  --bg-main: radial-gradient(
+    circle at top right,
+    #1b2432 0%,
+    #121a26 45%,
+    #0b111b 100%
+  );
+  --text-main: #e8efff;
+  --text-muted: #aebed8;
+  --card-bg: linear-gradient(170deg, #1d2738 0%, #171f2d 100%);
+  --card-border: #2a3750;
+  --soft-panel: #1f2b3d;
+  --soft-panel-border: #334564;
+  --input-bg: #101a29;
+  --input-border: #3b4f72;
+  --input-text: #d6e5ff;
+  --focus-border: #6f9cff;
+  --focus-ring: rgba(111, 156, 255, 0.28);
+  --heading-bg: linear-gradient(120deg, #23324b 0%, #1c283d 100%);
+  --heading-text: #e6eeff;
+  --heading-border: #394f73;
+  --empty-bg: #1c2738;
+  --empty-border: #455d84;
+  --empty-text: #bfd0eb;
+  --item-bg: #1b2638;
+  --item-border: #334764;
+  --task-text: #e0ebff;
+  --date-text: #9eb3d4;
+  --shadow-strong: 0 18px 45px rgba(5, 10, 18, 0.45);
+  --shadow-soft: 0 6px 14px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.4);
+  --control-bg: #26344b;
+  --control-border: #3d5478;
+  --control-text: #dce8ff;
+  --control-active-bg: #4f6ea5;
+}
+
+body[data-theme="light"] {
+  --bg-main: radial-gradient(
+    circle at top right,
+    #eef6ff 0%,
+    #f5f8ff 35%,
+    #f7f7f7 100%
+  );
+  --text-main: #1f2a37;
+  --text-muted: #51627c;
+  --card-bg: linear-gradient(170deg, #ffffff 0%, #f8fbff 100%);
+  --card-border: #dce7f7;
+  --soft-panel: #ffffff;
+  --soft-panel-border: #e3ecfb;
+  --input-bg: #ffffff;
+  --input-border: #cad9ee;
+  --input-text: #334b71;
+  --focus-border: #8eaae0;
+  --focus-ring: rgba(107, 143, 213, 0.2);
+  --heading-bg: linear-gradient(120deg, #e6f0ff 0%, #f6faff 100%);
+  --heading-text: #1e3d74;
+  --heading-border: #d4e3fb;
+  --empty-bg: #f8fbff;
+  --empty-border: #b4c5de;
+  --empty-text: #51627c;
+  --item-bg: #ffffff;
+  --item-border: #e2ecfb;
+  --task-text: #243a63;
+  --date-text: #5a6f92;
+  --shadow-strong: 0 18px 45px rgba(35, 64, 110, 0.12);
+  --shadow-soft: 0 6px 14px rgba(31, 62, 108, 0.08);
+  --shadow-hover: 0 12px 24px rgba(31, 62, 108, 0.14);
+  --control-bg: #eff5ff;
+  --control-border: #d4e1f5;
+  --control-text: #2f4770;
+  --control-active-bg: #c9ddff;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition:
+    background 0.35s ease,
+    color 0.25s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.todo-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px;
+}
+
+.todo-app-card {
+  width: min(780px, 96vw);
+}
+
+.todo-list-wrap {
+  margin-top: 14px;
+}
+
+.empty-state {
+  margin: 20px 0 8px;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px dashed var(--empty-border);
+  background: var(--empty-bg);
+  color: var(--empty-text);
+  font-weight: 500;
+}
+
+.theme-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 62px;
+}
+
+.header-controls {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+}
+
+.lang-btn,
+.theme-toggle-btn {
+  min-width: 74px;
+  background: transparent;
+  color: var(--control-text);
+  border: 1px solid transparent;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lang-btn.active {
+  background: var(--control-active-bg);
+  color: var(--text-main);
+}
+
+.theme-toggle-btn {
+  border-color: var(--control-border);
+  background: var(--control-bg);
+}
+
+.lang-btn:hover,
+.theme-toggle-btn:hover {
+  transform: translateY(-1px);
+}
+
+.button {
+  min-width: 90px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .theme-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: auto;
+  }
+
+  .header-controls {
+    position: static;
+    transform: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

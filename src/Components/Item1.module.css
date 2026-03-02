@@ -1,4 +1,35 @@
-.kgRow{
-   margin:10px;
-   height:100%;
+.kgRow {
+  margin: 10px;
+  min-height: 48px;
+  align-items: center;
+}
+
+.itemWrap {
+  border-radius: 12px;
+  border: 1px solid var(--item-border);
+  background: var(--item-bg);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease;
+}
+
+.taskText {
+  text-align: left;
+  color: var(--task-text);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.taskDate {
+  color: var(--date-text);
+  font-weight: 500;
+}
+
+.deleteBtn {
+  width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d84545 0%, #ef5f5f 100%);
+}
+
+.deleteBtn:hover {
+  filter: brightness(1.05);
 }

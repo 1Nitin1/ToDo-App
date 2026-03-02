@@ -1,14 +1,12 @@
-.container{
-   border:2px dashed black;
-   margin:20px;
-   text-align: center;
-   border-radius: 10px;
-   font-weight: 600;
-   height:auto;
-   width:700px;
-   position: absolute;
-   left:50%;
-   transform: translateX(-50%);
-   
-   
+.container {
+  border: 1px solid var(--card-border);
+  margin: 20px;
+  text-align: center;
+  border-radius: 18px;
+  font-weight: 600;
+  height: auto;
+  width: 100%;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-strong);
+  padding: 18px;
 }

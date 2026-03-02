@@ -1,17 +1,17 @@
 import styles from "./Input.module.css";
 import { useState } from "react";
-function Input({ addElement }) {
+function Input({ addElement, placeholder, addLabel, validationMessage }) {
   const [work, setWork] = useState("");
   const [date, setDate] = useState("");
 
   return (
-    <div className="container text-center">
+    <div className="container text-center todo-form">
       <div className={`row ${styles.kgRow}`}>
         <div className="col-6">
           <input
             className={styles.text}
             type="text"
-            placeholder="Enter Work"
+            placeholder={placeholder}
             value={work}
             onChange={(e) => setWork(e.target.value)}
           />
@@ -27,10 +27,10 @@ function Input({ addElement }) {
         <div className="col-2">
           <button
             type="button"
-            className="btn btn-success button"
+            className={`btn btn-success button ${styles.addBtn}`}
             onClick={() => {
               if (!work.trim() || !date) {
-                alert("Enter all info.");
+                alert(validationMessage);
                 return;
               }
               addElement(work, date);
@@ -38,7 +38,7 @@ function Input({ addElement }) {
               setDate("");
             }}
           >
-            Add
+            {addLabel}
           </button>
         </div>
       </div>

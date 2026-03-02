@@ -1,0 +1,12 @@
+.title {
+  margin: 0;
+  height: 58px;
+  line-height: 58px;
+  border-radius: 14px;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: var(--heading-text);
+  background: var(--heading-bg);
+  border: 1px solid var(--heading-border);
+}
